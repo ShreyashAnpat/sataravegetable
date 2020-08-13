@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Contact V4</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="images/icons/favicon.ico" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="css/util.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <!--===============================================================================================-->
+</head>
+
+<body>
+
+
+    <div class="container-contact100">
+        <div class="wrap-contact100">
+
+            <span class="contact100-form-title">
+					Order Now
+				</span>
+
+            <div class="wrap-input100 validate-input" data-validate="Name is required">
+                <span class="label-input100">Your Name</span>
+                <input id="name" class="input100" type="text" name="name" placeholder="Enter your name">
+                <span class="focus-input100"></span>
+            </div>
+
+            <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+                <span class="label-input100">Address</span>
+                <input id="add" class="input100" type="text" placeholder="Enter your email addess">
+                <span class="focus-input100"></span>
+            </div>
+
+
+
+            <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+                <span class="label-input100">Phone</span>
+                <input id="phoneuser" class="input100" type="text" placeholder="Enter your email addess">
+                <span class="focus-input100"></span>
+            </div>
+
+
+
+            <div class="container-contact100-form-btn">
+                <div class="wrap-contact100-form-btn">
+                    <div class="contact100-form-bgbtn"></div>
+                    <button id="insurt" class="contact100-form-btn">
+							<span>
+								Submit
+								<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+							</span>
+						</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+    <script data-cfasync="false" src="../js/form-submission-handler.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-database.js"></script>
+
+    <script id="mainscript">
+        var firebaseConfig = {
+            apiKey: "AIzaSyDt0pv0FrIwLO-btMpwac1oTaDeycXs-go",
+            authDomain: "satara-25809.firebaseapp.com",
+            databaseURL: "https://satara-25809.firebaseio.com",
+            projectId: "satara-25809",
+            storageBucket: "satara-25809.appspot.com",
+            messagingSenderId: "893908186592",
+            appId: "1:893908186592:web:a37dead68adabd0c30e785",
+            measurementId: "G-80R9B8PVXE"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+
+        var mname, mlocation, mphone, morder;
+
+        function makeid(length) {
+            var result = '';
+            var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@&$';
+            var charactersLength = characters.length;
+            for (var i = 0; i < length; i++) {
+                result += characters.charAt(Math.floor(Math.random() * charactersLength));
+            }
+            return result;
+        }
+
+        var ids = makeid(5);
+
+
+        var today = new Date();
+
+        var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+
+
+        document.getElementById("insurt").onclick = function() {
+                // mname = document.getElementById("add").value;
+                // firebase.database().ref(ids).set({
+                //     NAMEstudent: mname
+
+                // });
+                mphone = document.getElementById("phoneuser").value;
+
+                mname = document.getElementById("name").value;
+                mlocation = document.getElementById("add").value;
+                firebase.database().ref(date + "/" + ids).set({
+                    pnos: mphone,
+                    username: mname,
+                    useradd: mlocation
+
+                });
+
+            }
+            // function writeUserData(mname, mlocation, mphone, morder) {
+            //     firebase.database().ref('users/' + ids).set({
+            //         username: mname,
+
+        //         profile_picture: shre
+        //     });
+        // }
+    </script>
+
+
+
+
+    <div id="dropDownSelect1"></div>
+
+    <!--===============================================================================================-->
+    <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/animsition/js/animsition.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/bootstrap/js/popper.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/select2/select2.min.js"></script>
+    <script>
+        $(".selection-2").select2({
+            minimumResultsForSearch: 20,
+            dropdownParent: $('#dropDownSelect1')
+        });
+    </script>
+    <!--===============================================================================================-->
+    <script src="vendor/daterangepicker/moment.min.js"></script>
+    <script src="vendor/daterangepicker/daterangepicker.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/countdowntime/countdowntime.js"></script>
+    <!--===============================================================================================-->
+    <script src="js/main.js"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-23581568-13');
+    </script>
+
+</body>
+
+</html>

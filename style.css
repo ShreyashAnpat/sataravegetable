@@ -1,0 +1,28 @@
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+#product {
+    text-decoration: underline;
+    text-decoration-color: green;
+    margin-top: 20px;
+}
+
+#batata {
+    margin-right: 60px;
+}
+
+#reu {
+    margin-right: 20px;
+}
+
+#finaltotal {
+    align-self: center;
+}
+
+@media only screen and (max-width: 479px) {
+    .selproduct {
+        border: 5px;
+    }
+}

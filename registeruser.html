@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+</head>
+
+<style>
+    .center {
+        margin: auto;
+        width: 60%;
+        border: 3px solid #73AD21;
+        padding: 10px;
+        margin-top: 50px;
+    }
+</style>
+
+
+<body>
+
+
+    <div class="center">
+        <p class="text-center">Form</p>
+        <span class="titles">Your Name</span> <br>
+        <input type="text" placeholder="Enter your name" id="name"><br><br>
+        <span>Your Address</span> <br>
+        <input type="text" id="add"><br><br>
+        <span>Your Phone no.</span> <br>
+        <input type="text" id="phoneuser"><br><br>
+        <br><br>
+        <button id="insurt"> submit</button>
+
+
+    </div>
+
+
+
+    <script data-cfasync="false" src="../js/form-submission-handler.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-database.js"></script>
+
+    <script id="mainscript">
+        var firebaseConfig = {
+            apiKey: "AIzaSyDt0pv0FrIwLO-btMpwac1oTaDeycXs-go",
+            authDomain: "satara-25809.firebaseapp.com",
+            databaseURL: "https://satara-25809.firebaseio.com",
+            projectId: "satara-25809",
+            storageBucket: "satara-25809.appspot.com",
+            messagingSenderId: "893908186592",
+            appId: "1:893908186592:web:a37dead68adabd0c30e785",
+            measurementId: "G-80R9B8PVXE"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+
+        var mname, mlocation, mphone, morder;
+
+        function makeid(length) {
+            var result = '';
+            var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@&$';
+            var charactersLength = characters.length;
+            for (var i = 0; i < length; i++) {
+                result += characters.charAt(Math.floor(Math.random() * charactersLength));
+            }
+            return result;
+        }
+
+        var ids = makeid(5);
+
+
+        var today = new Date();
+
+        var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+
+
+        document.getElementById("insurt").onclick = function() {
+                // mname = document.getElementById("add").value;
+                // firebase.database().ref(ids).set({
+                //     NAMEstudent: mname
+
+                // });
+                mphone = document.getElementById("phoneuser").value;
+
+                mname = document.getElementById("name").value;
+                mlocation = document.getElementById("add").value;
+                firebase.database().ref(date + "/" + ids).set({
+                    pnos: mphone,
+                    username: mname,
+                    useradd: mlocation
+
+                });
+
+            }
+            // function writeUserData(mname, mlocation, mphone, morder) {
+            //     firebase.database().ref('users/' + ids).set({
+            //         username: mname,
+
+        //         profile_picture: shre
+        //     });
+        // }
+    </script>
+
+</body>
+
+</html>

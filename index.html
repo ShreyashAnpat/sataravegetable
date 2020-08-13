@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <link rel="stylesheet" href="./style.css">
+
+
+</head>
+
+<body>
+
+    <button onclick="topFunction()" id="myBtn" title="Go to top">
+        
+    </button>
+
+
+    <!-- Image and text -->
+    <nav class="navbar  navbar-light fixed-top  bg-light">
+        <a class="navbar-brand">
+            <img src="./image/logo.PNG" width="50" height="30" class="d-inline-block align-top" style="margin-right: 10px;" alt="">
+            <b> Featured Product </b> <span style="width: 10px;"> 
+           
+ </a>
+ <button id="btnscroolup" class="btn btn-primary " type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+     cart
+</button>
+
+    </nav>
+    <p style="height: 50px;"></p>
+
+
+    
+    <section class="container">
+        <div class="collapse" id="collapseExample">
+            <div class="card card-body " style="overflow-x:auto;">
+
+
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">NAME</th>
+                            <th scope="col">PRICE</th>
+                            <th scope="col">QUANTITY</th>
+                            <th scope="col">SUBTOTAL</th>
+                        </tr>
+                    </thead>
+                    <tbody id="adds">
+
+
+                    </tbody>
+                </table>
+
+                <p> Total = <samp id="totseee"> 0</samp> </p>
+                 <a style="width: 100px; align-self: center;" href="./ContactFrom_v4/orderform.html"><button style="width: 100px;" class="btn-primary"> pay</button> </a> 
+
+
+            </div>
+        </div>
+
+
+    </section>
+
+
+
+    <section class="container">
+
+        <div class="row">
+            <div class="col-md-4 col-lg-4 col-sm-6 ">
+                <div class="card" style="width: 18rem; border: 1px solid green;margin: 10px;">
+                    <img id="tomatoimg" src="./image/tomato.jpg" style="height: 208px; width: 286px;" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title" id="tomatoname" value="tomato">Tomatos</h5>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <!-- <label class="input-group-text" for="inputGroupSelect01">Options</label> -->
+                            </div>
+
+                            <select class="custom-select" id="inputGroupSelect01" onchange="ddcelecter();">
+                              <option value="0.5" selected>500 gms</option>
+                              <option value="0.75">750 gms</option>
+                              <option value="1">1 kg</option>
+                              <option value="2">2 kg</option>
+                            </select>
+
+                        </div>
+
+
+                        <!-- <p class="card-text">
+                            Rs.25
+                        </p> -->
+                        <samp> <input type="text" id="reu" style="border: none; width: 70px;" disabled></samp>
+                        <!-- <span id="reu">Rs.50 </span > -->
+                        <button type="button" onclick="ginger_rootfind();" class="btn-primary " style="padding:5px; border-radius: 5px;height: 40px;"> <img style="height: 20px;" src="https://img.icons8.com/doodle/48/000000/add-basket--v1.png" /> add to card </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-lg-4 col-sm-6">
+                <div class="card" style="width: 18rem; border: 1px solid green;margin: 10px;">
+                    <img src="./image/lady_finger.png" style="height: 208px; width: 286px;" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title" id="lady"> Lady-finger </h5>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <!-- <label class="input-group-text" for="inputGroupSelect01">Options</label> -->
+                            </div>
+
+                            <select class="custom-select" id="potato" onchange="potato();">
+                              <option value="0.5" selected>500 gms</option>
+                              <option value="0.75">750 gms</option>
+                              <option value="1">1 kg</option>
+                              <option value="2">2 kg</option>
+                            </select>
+
+                        </div>
+
+
+                        <!-- <p class="card-text">
+                            Rs.25
+                        </p> -->
+                        <samp> <input type="text" id="potato_total" style="border: none; width: 70px;" disabled></samp>
+                        <!-- <span id="reu">Rs.50 </span > -->
+                        <button onclick="Lady_finger();" class="btn-primary " style="padding:5px; border-radius: 5px;height: 40px;">   <img style="height: 20px;" src="https://img.icons8.com/doodle/48/000000/add-basket--v1.png"/> add to card</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-lg-4 col-sm-6">
+                <div class="card" style="width: 18rem; border: 1px solid green;margin: 10px;">
+                    <img src="./image/carrots.webp" style="height: 208px; width: 286px;" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title" id="carr"> carrots </h5>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <!-- <label class="input-group-text" for="inputGroupSelect01">Options</label> -->
+                            </div>
+
+                            <select class="custom-select" id="carrot" onchange="carrot();">
+                              <option value="0.5" selected>500 gms</option>
+                              <option value="0.75">750 gms</option>
+                              <option value="1">1 kg</option>
+                              <option value="2">2 kg</option>
+                            </select>
+
+                        </div>
+
+
+                        <!-- <p class="card-text">
+                            Rs.25
+                        </p> -->
+                        <samp> <input type="text" id="carrot_carrot" style="border: none; width: 70px;" disabled></samp>
+                        <!-- <span id="reu">Rs.50 </span > -->
+                        <button class="btn-primary " onclick="carrotadd();" style="padding:5px; border-radius: 5px;height: 40px;">   <img style="height: 20px;" src="https://img.icons8.com/doodle/48/000000/add-basket--v1.png"/> add to card</button>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+        </div>
+
+        <!-- second row -->
+
+
+        <div class="row">
+            <div class="col-md-4 col-lg-4 col-sm-6">
+                <div class="card" style="width: 18rem; border: 1px solid green;margin: 10px;">
+                    <img src="./image/bitter_ground.jpg" style="height: 208px; width: 286px;" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title" id="bitter"> Bitter-ground </h5>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <!-- <label class="input-group-text" for="inputGroupSelect01">Options</label> -->
+                            </div>
+
+                            <select class="custom-select" id="bitter_ground" onchange="bitter_ground();">
+                              <option value="0.5" selected>500 gms</option>
+                              <option value="0.75">750 gms</option>
+                              <option value="1">1 kg</option>
+                              <option value="2">2 kg</option>
+                            </select>
+
+
+                        </div>
+
+
+                        <!-- <p class="card-text">
+                            Rs.25
+                        </p> -->
+                        <samp> <input type="text" id="total_bitter_ground" style="border: none; width: 70px;" disabled></samp>
+                        <!-- <span id="reu">Rs.50 </span > -->
+                        <button class="btn-primary " onclick=" bitter_groundadd();" style="padding:5px; border-radius: 5px;height: 40px;">   <img style="height: 20px;" src="https://img.icons8.com/doodle/48/000000/add-basket--v1.png"/> add to card</button>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="col-md-4 col-lg-4 col-sm-6">
+                <div class="card" style="width: 18rem; border: 1px solid green;margin: 10px;">
+                    <img src="./image/ginger-root.jpg" style="height: 208px; width: 286px;" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title" id="ginger_root_name"> ginger-root </h5>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+
+                            </div>
+
+                            <select class="custom-select" id="lady_finger" onchange="lady_finger();">
+                              <option value="0.5" selected>500 gms</option>
+                              <option value="0.75">750 gms</option>
+                              <option value="1">1 kg</option>
+                              <option value="2">2 kg</option>
+                            </select>
+
+                        </div>
+
+
+                        <samp> <input type="text" id="total_lady_finger" style="border: none; width: 70px;" disabled></samp>
+
+                        <button onclick="ginger_rootfind();" class="btn-primary " style="padding:5px; border-radius: 5px;height: 40px;">   <img style="height: 20px;" src="https://img.icons8.com/doodle/48/000000/add-basket--v1.png"/> add to card</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-lg-4 col-sm-6">
+                <div class="card" style="width: 18rem; border: 1px solid green;margin: 10px;">
+                    <img src="./image/cucumber-health-benefits.png" style="height: 208px; width: 286px;" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title" id="name_cucumber"> Cucumber </h5>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <!-- <label class="input-group-text" for="inputGroupSelect01">Options</label> -->
+                            </div>
+
+                            <select class="custom-select" id="Cucumber" onchange="Cucumber();">
+                              <option value="0.5" selected>500 gms</option>
+                              <option value="0.75">750 gms</option>
+                              <option value="1">1 kg</option>
+                              <option value="2">2 kg</option>
+                            </select>
+
+                        </div>
+
+
+                        <!-- <p class="card-text">
+                            Rs.25
+                        </p> -->
+                        <samp> <input type="text" id="total_Cucumber" style="border: none; width: 70px;" disabled></samp>
+                        <!-- <span id="reu">Rs.50 </span > -->
+                        <button class="btn-primary " onclick=" Cucumberfin();" style="padding:5px; border-radius: 5px;height: 40px;">   <img style="height: 20px;" src="https://img.icons8.com/doodle/48/000000/add-basket--v1.png"/> add to card</button>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+
+        <!-- third row -->
+
+        <div class="row">
+            <div class="col-md-4 col-lg-4 col-sm-6">
+                <div class="card" style="width: 18rem; border: 1px solid green;margin: 10px;">
+                    <img src="./image/cauliflower.jpg" style="height: 208px; width: 286px;" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title" id="Cauliflower_name"> Cauliflower </h5>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <!-- <label class="input-group-text" for="inputGroupSelect01">Options</label> -->
+                            </div>
+
+                            <select class="custom-select" id="Cauliflower" onchange="Cauliflower();">
+                              <option value="0.5" selected>500 gms</option>
+                              <option value="0.75">750 gms</option>
+                              <option value="1">1 kg</option>
+                              <option value="2">2 kg</option>
+                            </select>
+
+                        </div>
+
+
+                        <!-- <p class="card-text">
+                            Rs.25
+                        </p> -->
+                        <samp> <input type="text" id="total_Cauliflower" style="border: none; width: 70px;" disabled></samp>
+                        <!-- <span id="reu">Rs.50 </span > -->
+                        <button class="btn-primary " onclick=" Cauliflowerfin()" style="padding:5px; border-radius: 5px;height: 40px;">   <img style="height: 20px;" src="https://img.icons8.com/doodle/48/000000/add-basket--v1.png"/> add to card</button>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-4 col-lg-4 col-sm-6">
+                <div class="card" style="width: 18rem; border: 1px solid green;margin: 10px;">
+                    <img src="./image/Gavar-Beans-Per-Kg.png" style="height: 208px; width: 286px;" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title" id="Gavar_name"> Gavar </h5>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <!-- <label class="input-group-text" for="inputGroupSelect01">Options</label> -->
+                            </div>
+
+                            <select class="custom-select" id="Gavar" onchange="Gavar();">
+                              <option value="0.5" selected>500 gms</option>
+                              <option value="0.75">750 gms</option>
+                              <option value="1">1 kg</option>
+                              <option value="2">2 kg</option>
+                            </select>
+
+                        </div>
+
+
+                        <!-- <p class="card-text">
+                            Rs.25
+                        </p> -->
+                        <samp> <input type="text" id="total_Gavar" style="border: none; width: 70px;" disabled></samp>
+                        <!-- <span id="reu">Rs.50 </span > -->
+                        <button class="btn-primary " onclick=" Gavarfin();" style="padding:5px; border-radius: 5px;height: 40px;">   <img style="height: 20px;" src="https://img.icons8.com/doodle/48/000000/add-basket--v1.png"/> add to card</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-lg-4 col-sm-6">
+                <div class="card" style="width: 18rem; border: 1px solid green;margin: 10px;">
+                    <img src="./image/branjal.jpg" style="height: 208px; width: 286px;" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title" id="Bringal_name"> Bringal </h5>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <!-- <label class="input-group-text" for="inputGroupSelect01">Options</label> -->
+                            </div>
+
+                            <select class="custom-select" id="Bringal" onchange="Bringal();">
+                              <option value="0.5" selected>500 gms</option>
+                              <option value="0.75">750 gms</option>
+                              <option value="1">1 kg</option>
+                              <option value="2">2 kg</option>
+                            </select>
+
+                        </div>
+
+
+                        <!-- <p class="card-text">
+                            Rs.25
+                        </p> -->
+                        <samp> <input type="text" id="total_Bringal" style="border: none; width: 70px;" disabled></samp>
+                        <!-- <span id="reu">Rs.50 </span > -->
+                        <button class="btn-primary " onclick="Bringalfin();" style="padding:5px; border-radius: 5px;height: 40px;">   <img style="height: 20px;" src="https://img.icons8.com/doodle/48/000000/add-basket--v1.png"/> add to card</button>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+
+
+
+
+
+
+
+    <script src="./main.js"></script>
+    <script>
+        const btntop = document.querySelector("#btnscroolup");
+        btntop.addEventListener("click",function(){
+            window.scrollTo(0,0);
+        })
+    </script>
+</body>
+
+</html>
